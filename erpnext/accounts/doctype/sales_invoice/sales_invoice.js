@@ -805,7 +805,9 @@ frappe.ui.form.on("Sales Invoice", {
 				},
 			};
 		};
+		//here
 	},
+
 	// When multiple companies are set up. in case company name is changed set default company address
 	company: function (frm) {
 		if (frm.doc.company) {

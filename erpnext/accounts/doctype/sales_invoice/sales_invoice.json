@@ -214,7 +214,11 @@
   "is_discounted",
   "remarks",
   "repost_required",
-  "connections_tab"
+  "connections_tab",
+  "tab_7_tab",
+  "insurance_coverage",
+  "insurance_coverage_amount",
+  "remaining_balance"
  ],
  "fields": [
   {
@@ -2173,6 +2177,28 @@
    "label": "Update Outstanding for Self",
    "no_copy": 1,
    "print_hide": 1
+  },
+  {
+   "fieldname": "tab_7_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 7"
+  },
+  {
+   "default": "0",
+   "fieldname": "insurance_coverage",
+   "fieldtype": "Check",
+   "label": "Insurance coverage"
+  },
+  {
+   "fieldname": "insurance_coverage_amount",
+   "fieldtype": "Currency",
+   "label": "Insurance coverage amount"
+  },
+  {
+   "fieldname": "remaining_balance",
+   "fieldtype": "Currency",
+   "label": "Remaining balance",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-file-text",
@@ -2185,7 +2211,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-03-22 17:50:34.395602",
+ "modified": "2024-04-02 14:36:49.047585",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
