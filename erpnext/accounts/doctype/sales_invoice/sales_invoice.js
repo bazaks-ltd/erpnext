@@ -806,6 +806,54 @@ frappe.ui.form.on("Sales Invoice", {
 			};
 		};
 		//here
+		// insurance setup
+
+		frm.fields_dict["items"].grid.get_field("insurance_coverage").get_query = function (doc, cdt, cdn) {
+			return {
+				filters: [["Insurance Policy", "patient_id", "=", doc.patient]],
+			};
+		};
+
+		frm.cscript.insurance_coverage = function (doc, cdt, cdn) {
+			var total_amount = 0;
+			var insurance_amount = 0;
+
+			$.each(doc.items || [], function (i, item) {
+				total_amount += item.amount;
+			});
+
+			if (doc.insurance_coverage) {
+				frappe.db.get_value(
+					"Insurance Policy",
+					{
+						policy_number: doc.insurance_policy,
+						insurance_company: doc.insurance_company,
+					},
+					["coverage_amount", "insurance_company", "policy_number"],
+					function (r) {
+						if (r.coverage_amount) {
+							insurance_amount = r.coverage_amount;
+							doc.insurance_coverage_amount = insurance_amount;
+							doc.insurance_company = r.insurance_company;
+							doc.remaining_balance = insurance_amount - total_amount;
+							doc.supplier = doc.insurance_company;
+							doc.policy_number = r.policy_number;
+
+							refresh_field("insurance_coverage_amount");
+							refresh_field("insurance_company");
+							refresh_field("remaining_balance");
+							refresh_field("supplier");
+							refresh_field("policy_number");
+						}
+					}
+				);
+			} else {
+				doc.insurance_coverage_amount = 0;
+				doc.remaining_balance = total_amount;
+				refresh_field("insurance_coverage_amount");
+				refresh_field("remaining_balance");
+			}
+		};
 	},
 
 	// When multiple companies are set up. in case company name is changed set default company address

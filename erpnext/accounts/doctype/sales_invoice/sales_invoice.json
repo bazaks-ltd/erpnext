@@ -218,7 +218,9 @@
   "tab_7_tab",
   "insurance_coverage",
   "insurance_coverage_amount",
-  "remaining_balance"
+  "remaining_balance",
+  "supplier",
+  "policy_number"
  ],
  "fields": [
   {
@@ -2190,14 +2192,28 @@
    "label": "Insurance coverage"
   },
   {
+   "fieldname": "remaining_balance",
+   "fieldtype": "Currency",
+   "label": "Remaining balance",
+   "read_only": 1
+  },
+  {
    "fieldname": "insurance_coverage_amount",
    "fieldtype": "Currency",
    "label": "Insurance coverage amount"
   },
   {
-   "fieldname": "remaining_balance",
-   "fieldtype": "Currency",
-   "label": "Remaining balance",
+   "fieldname": "supplier",
+   "fieldtype": "Data",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Policy number",
    "read_only": 1
   }
  ],
@@ -2211,7 +2227,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-04-02 14:36:49.047585",
+ "modified": "2024-04-12 10:41:25.037082",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
