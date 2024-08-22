@@ -389,7 +389,7 @@ erpnext.PointOfSale.Controller = class {
 						this.order_summary.load_summary_of(this.frm.doc, true);
 						frappe.show_alert({
 							indicator: "green",
-							message: __("POS invoice {0} created succesfully", [r.doc.name]),
+							message: __("POS invoice {0} created successfully", [r.doc.name]),
 						});
 					});
 				},
@@ -547,6 +547,8 @@ erpnext.PointOfSale.Controller = class {
 
 	async on_cart_update(args) {
 		frappe.dom.freeze();
+		if (this.frm.doc.set_warehouse != this.settings.warehouse)
+			this.frm.doc.set_warehouse = this.settings.warehouse;
 		let item_row = undefined;
 		try {
 			let { field, value, item } = args;
@@ -576,6 +578,14 @@ erpnext.PointOfSale.Controller = class {
 
 				if (!item_code) return;
 
+				if (rate == undefined || rate == 0) {
+					frappe.show_alert({
+						message: __("Price is not set for the item."),
+						indicator: "orange",
+					});
+					frappe.utils.play_sound("error");
+					return;
+				}
 				const new_item = { item_code, batch_no, rate, uom, [field]: value };
 
 				if (serial_no) {
@@ -583,6 +593,7 @@ erpnext.PointOfSale.Controller = class {
 					new_item["serial_no"] = serial_no;
 				}
 
+				new_item["use_serial_batch_fields"] = 1;
 				if (field === "serial_no") new_item["qty"] = value.split(`\n`).length || 0;
 
 				item_row = this.frm.add_child("items", new_item);
@@ -684,7 +695,7 @@ erpnext.PointOfSale.Controller = class {
 		const is_stock_item = resp[1];
 
 		frappe.dom.unfreeze();
-		const bold_uom = item_row.stock_uom.bold();
+		const bold_uom = item_row.uom.bold();
 		const bold_item_code = item_row.item_code.bold();
 		const bold_warehouse = warehouse.bold();
 		const bold_available_qty = available_qty.toString().bold();

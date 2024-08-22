@@ -27,7 +27,7 @@ frappe.ui.form.on("Item Variant Settings", {
 		frappe.model.with_doctype("Item", () => {
 			const field_label_map = {};
 			frappe.get_meta("Item").fields.forEach((d) => {
-				field_label_map[d.fieldname] = __(d.label) + ` (${d.fieldname})`;
+				field_label_map[d.fieldname] = __(d.label, null, d.parent) + ` (${d.fieldname})`;
 
 				if (
 					!in_list(exclude_field_types, d.fieldtype) &&

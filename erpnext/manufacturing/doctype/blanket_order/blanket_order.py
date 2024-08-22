@@ -127,7 +127,7 @@ def make_order(source_name):
 
 	def update_item(source, target, source_parent):
 		target_qty = source.get("qty") - source.get("ordered_qty")
-		target.qty = target_qty if not flt(target_qty) < 0 else 0
+		target.qty = target_qty if flt(target_qty) >= 0 else 0
 		target.rate = source.get("rate")
 		item = get_item_defaults(target.item_code, source_parent.company)
 		if item:
@@ -186,7 +186,7 @@ def validate_against_blanket_order(order_doc):
 						allowed_qty = remaining_qty + (remaining_qty * (allowance / 100))
 						if allowed_qty < item_data[item.item_code]:
 							frappe.throw(
-								_("Item {0} cannot be ordered more than {1} against Blanket Order {2}.").format(
-									item.item_code, allowed_qty, bo_name
-								)
+								_(
+									"Item {0} cannot be ordered more than {1} against Blanket Order {2}."
+								).format(item.item_code, allowed_qty, bo_name)
 							)

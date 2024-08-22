@@ -77,31 +77,6 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 			erpnext.accounts.ledger_preview.show_stock_ledger_preview(this.frm);
 		}
 
-		if (this.frm.doc.repost_required && this.frm.doc.docstatus === 1) {
-			this.frm.set_intro(
-				__(
-					"Accounting entries for this invoice need to be reposted. Please click on 'Repost' button to update."
-				)
-			);
-			this.frm
-				.add_custom_button(__("Repost Accounting Entries"), () => {
-					this.frm.call({
-						doc: this.frm.doc,
-						method: "repost_accounting_entries",
-						freeze: true,
-						freeze_message: __("Reposting..."),
-						callback: (r) => {
-							if (!r.exc) {
-								frappe.msgprint(__("Accounting Entries are reposted."));
-								me.frm.refresh();
-							}
-						},
-					});
-				})
-				.removeClass("btn-default")
-				.addClass("btn-warning");
-		}
-
 		if (!doc.is_return && doc.docstatus == 1 && doc.outstanding_amount != 0) {
 			if (doc.on_hold) {
 				this.frm.add_custom_button(
@@ -131,17 +106,21 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 
 		if (doc.docstatus == 1 && doc.outstanding_amount != 0 && !doc.on_hold) {
 			this.frm.add_custom_button(__("Payment"), () => this.make_payment_entry(), __("Create"));
-			cur_frm.page.set_inner_btn_group_as_primary(__("Create"));
+			this.frm.page.set_inner_btn_group_as_primary(__("Create"));
 		}
 
 		if (!doc.is_return && doc.docstatus == 1) {
 			if (doc.outstanding_amount >= 0 || Math.abs(flt(doc.outstanding_amount)) < flt(doc.grand_total)) {
-				cur_frm.add_custom_button(__("Return / Debit Note"), this.make_debit_note, __("Create"));
+				this.frm.add_custom_button(
+					__("Return / Debit Note"),
+					this.make_debit_note.bind(this),
+					__("Create")
+				);
 			}
 		}
 
 		if (doc.outstanding_amount > 0 && !cint(doc.is_return) && !doc.on_hold) {
-			cur_frm.add_custom_button(
+			this.frm.add_custom_button(
 				__("Payment Request"),
 				function () {
 					me.make_payment_request();
@@ -462,7 +441,7 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 	make_debit_note() {
 		frappe.model.open_mapped_doc({
 			method: "erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_debit_note",
-			frm: cur_frm,
+			frm: this.frm,
 		});
 	}
 };
@@ -485,10 +464,12 @@ function hide_fields(doc) {
 
 	var item_fields_stock = ["warehouse_section", "received_qty", "rejected_qty"];
 
-	cur_frm.fields_dict["items"].grid.set_column_disp(
-		item_fields_stock,
-		cint(doc.update_stock) == 1 || cint(doc.is_return) == 1 ? true : false
-	);
+	if (cur_frm.fields_dict["items"]) {
+		cur_frm.fields_dict["items"].grid.set_column_disp(
+			item_fields_stock,
+			cint(doc.update_stock) == 1 || cint(doc.is_return) == 1 ? true : false
+		);
+	}
 
 	cur_frm.refresh_fields();
 }
@@ -675,7 +656,7 @@ frappe.ui.form.on("Purchase Invoice", {
 			if (frm.doc.supplier) {
 				frm.doc.apply_tds = frm.doc.__onload.supplier_tds ? 1 : 0;
 			}
-			if (!frm.doc.__onload.supplier_tds) {
+			if (!frm.doc.__onload.enable_apply_tds) {
 				frm.set_df_property("apply_tds", "read_only", 1);
 			}
 		}

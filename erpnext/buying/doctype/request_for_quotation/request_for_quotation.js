@@ -513,21 +513,20 @@ erpnext.buying.RequestforQuotationController = class RequestforQuotationControll
 						method: "frappe.desk.doctype.tag.tag.get_tagged_docs",
 						args: {
 							doctype: "Supplier",
-							tag: args.tag,
+							tag: "%" + args.tag + "%",
 						},
 						callback: load_suppliers,
 					});
 				} else if (args.supplier_group) {
-					return frappe.call({
-						method: "frappe.client.get_list",
-						args: {
-							doctype: "Supplier",
+					frappe.db
+						.get_list("Supplier", {
+							filters: { supplier_group: args.supplier_group },
+							limit: 100,
 							order_by: "name",
-							fields: ["name"],
-							filters: [["Supplier", "supplier_group", "=", args.supplier_group]],
-						},
-						callback: load_suppliers,
-					});
+						})
+						.then((r) => {
+							load_suppliers({ message: r });
+						});
 				}
 			},
 		});

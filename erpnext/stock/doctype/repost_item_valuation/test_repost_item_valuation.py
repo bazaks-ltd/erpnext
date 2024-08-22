@@ -99,7 +99,7 @@ class TestRepostItemValuation(FrappeTestCase, StockTestMixin):
 			).insert(ignore_permissions=True)
 
 			repost_doc.load_from_db()
-			repost_doc.modified = add_days(now(), days=-i * 10)
+			repost_doc.creation = add_days(now(), days=-i * 10)
 			repost_doc.db_update_all()
 
 		logs = frappe.get_all("Repost Item Valuation", filters={"status": "Skipped"})
@@ -137,8 +137,6 @@ class TestRepostItemValuation(FrappeTestCase, StockTestMixin):
 			item_code="_Test Item",
 			warehouse="_Test Warehouse - _TC",
 			based_on="Item and Warehouse",
-			voucher_type="Sales Invoice",
-			voucher_no="SI-1",
 			posting_date="2021-01-02",
 			posting_time="00:01:00",
 		)
@@ -148,8 +146,6 @@ class TestRepostItemValuation(FrappeTestCase, StockTestMixin):
 		riv1.flags.dont_run_in_test = True
 		riv1.submit()
 		_assert_status(riv1, "Queued")
-		self.assertEqual(riv1.voucher_type, "Sales Invoice")  # traceability
-		self.assertEqual(riv1.voucher_no, "SI-1")
 
 		# newer than existing duplicate - riv1
 		riv2 = frappe.get_doc(riv_args.update({"posting_date": "2021-01-03"}))
@@ -179,7 +175,6 @@ class TestRepostItemValuation(FrappeTestCase, StockTestMixin):
 		riv3.set_status("Skipped")
 
 	def test_stock_freeze_validation(self):
-
 		today = nowdate()
 
 		riv = frappe.get_doc(

@@ -10,6 +10,16 @@ source_link = "https://github.com/frappe/erpnext"
 app_logo_url = "/assets/erpnext/images/erpnext-logo.svg"
 
 
+add_to_apps_screen = [
+	{
+		"name": "erpnext",
+		"logo": "/assets/erpnext/images/erpnext-logo-blue.png",
+		"title": "ERPNext",
+		"route": "/app/home",
+		# "has_permission": "erpnext.api.permission.has_app_permission"
+	}
+]
+
 develop_version = "14.x.x-develop"
 
 app_include_js = "erpnext.bundle.js"
@@ -28,9 +38,7 @@ doctype_js = {
 
 override_doctype_class = {"Address": "erpnext.accounts.custom.address.ERPNextAddress"}
 
-override_whitelisted_methods = {
-	"frappe.www.contact.send_message": "erpnext.templates.utils.send_message"
-}
+override_whitelisted_methods = {"frappe.www.contact.send_message": "erpnext.templates.utils.send_message"}
 
 welcome_email = "erpnext.setup.utils.welcome_email"
 
@@ -42,7 +50,6 @@ setup_wizard_test = "erpnext.setup.setup_wizard.test_setup_wizard.run_setup_wiza
 
 before_install = [
 	"erpnext.setup.install.check_setup_wizard_not_completed",
-	"erpnext.setup.install.check_frappe_version",
 ]
 after_install = "erpnext.setup.install.after_install"
 
@@ -258,19 +265,12 @@ standard_portal_menu_items = [
 	{"title": "Appointment Booking", "route": "/book_appointment"},
 ]
 
-default_roles = [
-	{"role": "Customer", "doctype": "Contact", "email_field": "email_id"},
-	{"role": "Supplier", "doctype": "Contact", "email_field": "email_id"},
-]
-
 sounds = [
 	{"name": "incoming-call", "src": "/assets/erpnext/sounds/incoming-call.mp3", "volume": 0.2},
 	{"name": "call-disconnect", "src": "/assets/erpnext/sounds/call-disconnect.mp3", "volume": 0.2},
 ]
 
-has_upload_permission = {
-	"Employee": "erpnext.setup.doctype.employee.employee.has_upload_permission"
-}
+has_upload_permission = {"Employee": "erpnext.setup.doctype.employee.employee.has_upload_permission"}
 
 has_website_permission = {
 	"Sales Order": "erpnext.controllers.website_list_for_contact.has_website_permission",
@@ -359,7 +359,6 @@ doc_events = {
 	"Payment Entry": {
 		"on_submit": [
 			"erpnext.regional.create_transaction_log",
-			"erpnext.accounts.doctype.payment_request.payment_request.update_payment_req_status",
 			"erpnext.accounts.doctype.dunning.dunning.resolve_dunning",
 		],
 		"on_cancel": ["erpnext.accounts.doctype.dunning.dunning.resolve_dunning"],
@@ -445,6 +444,8 @@ scheduler_events = {
 		"erpnext.buying.doctype.supplier_quotation.supplier_quotation.set_expired_status",
 		"erpnext.accounts.doctype.process_statement_of_accounts.process_statement_of_accounts.send_auto_email",
 		"erpnext.accounts.utils.auto_create_exchange_rate_revaluation_daily",
+		"erpnext.accounts.utils.run_ledger_health_checks",
+		"erpnext.assets.doctype.asset_maintenance_log.asset_maintenance_log.update_asset_maintenance_log_status",
 	],
 	"weekly": [
 		"erpnext.accounts.utils.auto_create_exchange_rate_revaluation_weekly",
@@ -458,6 +459,7 @@ scheduler_events = {
 	],
 	"monthly_long": [
 		"erpnext.accounts.deferred_revenue.process_deferred_accounting",
+		"erpnext.accounts.utils.auto_create_exchange_rate_revaluation_monthly",
 	],
 }
 
@@ -472,9 +474,7 @@ default_mail_footer = """
 	</span>
 """
 
-get_translated_dict = {
-	("doctype", "Global Defaults"): "frappe.geo.country_info.get_translated_dict"
-}
+get_translated_dict = {("doctype", "Global Defaults"): "frappe.geo.country_info.get_translated_dict"}
 
 bot_parsers = [
 	"erpnext.utilities.bot.FindItemBot",
@@ -486,7 +486,8 @@ payment_gateway_enabled = "erpnext.accounts.utils.create_payment_gateway_account
 
 communication_doctypes = ["Customer", "Supplier"]
 
-advance_payment_doctypes = ["Sales Order", "Purchase Order"]
+advance_payment_receivable_doctypes = ["Sales Order"]
+advance_payment_payable_doctypes = ["Purchase Order"]
 
 invoice_doctypes = ["Sales Invoice", "Purchase Invoice"]
 
@@ -545,6 +546,7 @@ accounting_dimension_doctypes = [
 	"Supplier Quotation Item",
 	"Payment Reconciliation",
 	"Payment Reconciliation Allocation",
+	"Payment Request",
 ]
 
 get_matching_queries = (
@@ -562,9 +564,7 @@ get_entries_for_bank_clearance_summary = "erpnext.accounts.report.bank_clearance
 get_entries_for_bank_reconciliation_statement = "erpnext.accounts.report.bank_reconciliation_statement.bank_reconciliation_statement.get_entries_for_bank_reconciliation_statement"
 
 regional_overrides = {
-	"France": {
-		"erpnext.tests.test_regional.test_method": "erpnext.regional.france.utils.test_method"
-	},
+	"France": {"erpnext.tests.test_regional.test_method": "erpnext.regional.france.utils.test_method"},
 	"United Arab Emirates": {
 		"erpnext.controllers.taxes_and_totals.update_itemised_tax_data": "erpnext.regional.united_arab_emirates.utils.update_itemised_tax_data",
 		"erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_regional_gl_entries": "erpnext.regional.united_arab_emirates.utils.make_regional_gl_entries",
@@ -634,9 +634,7 @@ global_search_doctypes = {
 	],
 }
 
-additional_timeline_content = {
-	"*": ["erpnext.telephony.doctype.call_log.call_log.get_linked_call_logs"]
-}
+additional_timeline_content = {"*": ["erpnext.telephony.doctype.call_log.call_log.get_linked_call_logs"]}
 
 
 extend_bootinfo = [
@@ -650,3 +648,5 @@ default_log_clearing_doctypes = {
 }
 
 export_python_type_annotations = True
+
+fields_for_group_similar_items = ["qty", "amount"]
