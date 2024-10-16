@@ -22,6 +22,9 @@
   "gender",
   "date_of_birth",
   "salutation",
+  "nid",
+  "contract",
+  "edf",
   "column_break1",
   "date_of_joining",
   "image",
@@ -73,6 +76,12 @@
   "column_break_44",
   "holiday_list",
   "salary_information",
+  "emp_details_section",
+  "e_basic",
+  "e_bus_fare",
+  "e_car_allowance",
+  "e_coordinator_allowance",
+  "section_break_bzow",
   "ctc",
   "salary_currency",
   "salary_mode",
@@ -817,6 +826,55 @@
    "fieldname": "iban",
    "fieldtype": "Data",
    "label": "IBAN"
+  },
+  {
+   "fieldname": "nid",
+   "fieldtype": "Data",
+   "label": "Nid"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Attach",
+   "label": "Contract"
+  },
+  {
+   "fieldname": "edf",
+   "fieldtype": "Select",
+   "label": "EDF",
+   "options": "0\n1\n2\n3\n4"
+  },
+  {
+   "fieldname": "emp_details_section",
+   "fieldtype": "Section Break",
+   "label": "Emp Details"
+  },
+  {
+   "fieldname": "section_break_bzow",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "e_basic",
+   "fieldtype": "Currency",
+   "label": "Basic",
+   "precision": "2"
+  },
+  {
+   "fieldname": "e_bus_fare",
+   "fieldtype": "Currency",
+   "label": "Bus Fare",
+   "precision": "2"
+  },
+  {
+   "fieldname": "e_car_allowance",
+   "fieldtype": "Currency",
+   "label": "Car Allowance",
+   "precision": "2"
+  },
+  {
+   "fieldname": "e_coordinator_allowance",
+   "fieldtype": "Currency",
+   "label": "Coordinator Allowance",
+   "precision": "2"
   }
  ],
  "icon": "fa fa-user",
@@ -824,7 +882,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2024-03-27 13:09:36.900706",
+ "modified": "2024-10-12 18:29:42.878330",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
