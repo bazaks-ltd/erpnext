@@ -57,9 +57,8 @@ class Item(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.stock.doctype.item_barcode.item_barcode import ItemBarcode
+		from erpnext.stock.doctype.item_composition.item_composition import ItemComposition
 		from erpnext.stock.doctype.item_customer_detail.item_customer_detail import ItemCustomerDetail
 		from erpnext.stock.doctype.item_default.item_default import ItemDefault
 		from erpnext.stock.doctype.item_reorder.item_reorder import ItemReorder
@@ -67,6 +66,7 @@ class Item(Document):
 		from erpnext.stock.doctype.item_tax.item_tax import ItemTax
 		from erpnext.stock.doctype.item_variant_attribute.item_variant_attribute import ItemVariantAttribute
 		from erpnext.stock.doctype.uom_conversion_detail.uom_conversion_detail import UOMConversionDetail
+		from frappe.types import DF
 
 		allow_alternative_item: DF.Check
 		allow_negative_stock: DF.Check
@@ -77,6 +77,8 @@ class Item(Document):
 		barcodes: DF.Table[ItemBarcode]
 		batch_number_series: DF.Data | None
 		brand: DF.Link | None
+		category: DF.Link | None
+		composition: DF.TableMultiSelect[ItemComposition]
 		country_of_origin: DF.Link | None
 		create_new_batch: DF.Check
 		customer: DF.Link | None
@@ -86,12 +88,11 @@ class Item(Document):
 		default_bom: DF.Link | None
 		default_item_manufacturer: DF.Link | None
 		default_manufacturer_part_no: DF.Data | None
-		default_material_request_type: DF.Literal[
-			"Purchase", "Material Transfer", "Material Issue", "Manufacture", "Customer Provided"
-		]
+		default_material_request_type: DF.Literal["Purchase", "Material Transfer", "Material Issue", "Manufacture", "Customer Provided"]
 		delivered_by_supplier: DF.Check
 		description: DF.TextEditor | None
 		disabled: DF.Check
+		dosage_form: DF.Link | None
 		enable_deferred_expense: DF.Check
 		enable_deferred_revenue: DF.Check
 		end_of_life: DF.Date | None
@@ -115,6 +116,7 @@ class Item(Document):
 		item_defaults: DF.Table[ItemDefault]
 		item_group: DF.Link
 		item_name: DF.Data | None
+		laboratory: DF.Link | None
 		last_purchase_rate: DF.Float
 		lead_time_days: DF.Int
 		max_discount: DF.Float
@@ -125,6 +127,7 @@ class Item(Document):
 		opening_stock: DF.Float
 		over_billing_allowance: DF.Float
 		over_delivery_receipt_allowance: DF.Float
+		pharma_item: DF.Check
 		purchase_uom: DF.Link | None
 		quality_inspection_template: DF.Link | None
 		reorder_levels: DF.Table[ItemReorder]
@@ -136,6 +139,7 @@ class Item(Document):
 		shelf_life_in_days: DF.Int
 		standard_rate: DF.Currency
 		stock_uom: DF.Link
+		supplier: DF.TableMultiSelect[ItemSupplier]
 		supplier_items: DF.Table[ItemSupplier]
 		taxes: DF.Table[ItemTax]
 		total_projected_qty: DF.Float

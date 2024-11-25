@@ -1,0 +1,46 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:composition",
+ "creation": "2024-11-18 06:49:36.916274",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "composition"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "composition",
+   "fieldtype": "Data",
+   "label": "Composition",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-18 06:50:07.711795",
+ "modified_by": "Administrator",
+ "module": "Stock",
+ "name": "Composition",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "composition"
+}
