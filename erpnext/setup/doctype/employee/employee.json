@@ -81,6 +81,7 @@
   "e_bus_fare",
   "e_car_allowance",
   "e_coordinator_allowance",
+  "working_days",
   "section_break_bzow",
   "ctc",
   "salary_currency",
@@ -286,7 +287,7 @@
    "collapsible": 1,
    "fieldname": "erpnext_user",
    "fieldtype": "Section Break",
-   "label": "User Details"
+   "label": "ERP"
   },
   {
    "description": "System User (login) ID. If set, it will become default for all HR forms.",
@@ -875,6 +876,13 @@
    "fieldtype": "Currency",
    "label": "Coordinator Allowance",
    "precision": "2"
+  },
+  {
+   "default": "26",
+   "fieldname": "working_days",
+   "fieldtype": "Select",
+   "label": "Working Days",
+   "options": "26\n22"
   }
  ],
  "icon": "fa fa-user",
@@ -882,7 +890,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2024-10-12 18:29:42.878330",
+ "modified": "2024-12-10 10:41:07.230538",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
