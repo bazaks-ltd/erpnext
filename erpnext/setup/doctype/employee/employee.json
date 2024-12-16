@@ -82,6 +82,8 @@
   "e_car_allowance",
   "e_coordinator_allowance",
   "working_days",
+  "emp_prgf",
+  "contractor",
   "section_break_bzow",
   "ctc",
   "salary_currency",
@@ -883,6 +885,18 @@
    "fieldtype": "Select",
    "label": "Working Days",
    "options": "26\n22"
+  },
+  {
+   "default": "1",
+   "fieldname": "emp_prgf",
+   "fieldtype": "Check",
+   "label": "PRGF"
+  },
+  {
+   "default": "0",
+   "fieldname": "contractor",
+   "fieldtype": "Check",
+   "label": "Contractor"
   }
  ],
  "icon": "fa fa-user",
@@ -890,7 +904,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2024-12-10 10:41:07.230538",
+ "modified": "2024-12-15 16:46:11.417893",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
