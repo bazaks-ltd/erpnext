@@ -112,7 +112,10 @@
   "production_plan_sub_assembly_item",
   "page_break",
   "column_break_pjyo",
-  "job_card"
+  "job_card",
+  "section_break_ctbq",
+  "use_serial_batch_fields",
+  "batch_no"
  ],
  "fields": [
   {
@@ -922,13 +925,29 @@
    "label": "Job Card",
    "options": "Job Card",
    "search_index": 1
+  },
+  {
+   "fieldname": "section_break_ctbq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "use_serial_batch_fields",
+   "fieldtype": "Check",
+   "label": "use_serial_batch_fields"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "batch_no",
+   "options": "Batch"
   }
  ],
  "idx": 1,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-27 13:12:24.979325",
+ "modified": "2025-01-08 07:49:49.812239",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order Item",

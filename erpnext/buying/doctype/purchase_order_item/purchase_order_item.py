@@ -25,6 +25,7 @@ class PurchaseOrderItem(Document):
 		base_price_list_rate: DF.Currency
 		base_rate: DF.Currency
 		base_rate_with_margin: DF.Currency
+		batch_no: DF.Link | None
 		billed_amt: DF.Currency
 		blanket_order: DF.Link | None
 		blanket_order_rate: DF.Currency
@@ -51,6 +52,7 @@ class PurchaseOrderItem(Document):
 		item_name: DF.Data
 		item_tax_rate: DF.Code | None
 		item_tax_template: DF.Link | None
+		job_card: DF.Link | None
 		last_purchase_rate: DF.Currency
 		manufacturer: DF.Link | None
 		manufacturer_part_no: DF.Data | None
@@ -88,6 +90,7 @@ class PurchaseOrderItem(Document):
 		supplier_quotation_item: DF.Link | None
 		total_weight: DF.Float
 		uom: DF.Link
+		use_serial_batch_fields: DF.Check
 		warehouse: DF.Link | None
 		weight_per_unit: DF.Float
 		weight_uom: DF.Link | None
