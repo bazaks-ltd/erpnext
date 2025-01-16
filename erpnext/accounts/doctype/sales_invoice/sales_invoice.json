@@ -113,6 +113,7 @@
   "payments_section",
   "cash_bank_account",
   "payments",
+  "outstanding",
   "section_break_84",
   "base_paid_amount",
   "column_break_86",
@@ -1337,7 +1338,6 @@
    "print_hide": 1
   },
   {
-   "collapsible": 1,
    "collapsible_depends_on": "eval:!doc.is_pos",
    "depends_on": "eval:doc.is_pos===1",
    "fieldname": "payments_section",
@@ -2183,6 +2183,13 @@
    "label": "Update Outstanding for Self",
    "no_copy": 1,
    "print_hide": 1
+  },
+  {
+   "fieldname": "outstanding",
+   "fieldtype": "HTML",
+   "is_virtual": 1,
+   "label": "Outstanding",
+   "options": "<div class=\"text-right\">\n<strong>Outstanding Amount</strong>\n<span>{{format_currency(doc.outstanding_amount)}}</span>\n</div>\n<div class=\"text-right\">\n<strong>Total</strong>\n<span>{{format_currency(doc.total)}}</span>\n</div>"
   }
  ],
  "icon": "fa fa-file-text",
@@ -2195,7 +2202,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-07-18 15:30:39.428519",
+ "modified": "2025-01-15 09:34:10.222589",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
