@@ -839,9 +839,9 @@ frappe.ui.form.on("Sales Invoice", {
 			"due_date",
 			"is_opening",
 			"source",
-			"total_advance",
-			"get_advances",
-			"advances",
+			// "total_advance",
+			// "get_advances",
+			// "advances",
 			"from_date",
 			"to_date",
 		];

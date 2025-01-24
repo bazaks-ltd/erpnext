@@ -63,12 +63,14 @@ class SalesInvoiceItem(Document):
 		item_tax_template: DF.Link | None
 		margin_rate_or_amount: DF.Float
 		margin_type: DF.Literal["", "Percentage", "Amount"]
+		medical_department: DF.Link | None
 		net_amount: DF.Currency
 		net_rate: DF.Currency
 		page_break: DF.Check
 		parent: DF.Data
 		parentfield: DF.Data
 		parenttype: DF.Data
+		practitioner: DF.Link | None
 		price_list_rate: DF.Currency
 		pricing_rules: DF.SmallText | None
 		project: DF.Link | None
@@ -78,6 +80,8 @@ class SalesInvoiceItem(Document):
 		quality_inspection: DF.Link | None
 		rate: DF.Currency
 		rate_with_margin: DF.Currency
+		reference_dn: DF.DynamicLink | None
+		reference_dt: DF.Link | None
 		sales_invoice_item: DF.Data | None
 		sales_order: DF.Link | None
 		serial_and_batch_bundle: DF.Link | None
@@ -85,6 +89,7 @@ class SalesInvoiceItem(Document):
 		service_end_date: DF.Date | None
 		service_start_date: DF.Date | None
 		service_stop_date: DF.Date | None
+		service_unit: DF.Link | None
 		so_detail: DF.Data | None
 		stock_qty: DF.Float
 		stock_uom: DF.Link | None
