@@ -11,7 +11,10 @@
   "mode_of_payment",
   "enabled",
   "type",
-  "accounts"
+  "accounts",
+  "pcare_tab",
+  "perc_charge",
+  "credit_account"
  ],
  "fields": [
   {
@@ -42,16 +45,33 @@
    "fieldname": "enabled",
    "fieldtype": "Check",
    "label": "Enabled"
+  },
+  {
+   "fieldname": "pcare_tab",
+   "fieldtype": "Tab Break",
+   "label": "Pcare"
+  },
+  {
+   "fieldname": "perc_charge",
+   "fieldtype": "Percent",
+   "label": "Percentage Charge"
+  },
+  {
+   "fieldname": "credit_account",
+   "fieldtype": "Link",
+   "label": "Credit Account",
+   "options": "Account"
   }
  ],
  "icon": "fa fa-credit-card",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-27 13:10:05.597711",
+ "modified": "2025-01-30 15:58:24.910954",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Mode of Payment",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
