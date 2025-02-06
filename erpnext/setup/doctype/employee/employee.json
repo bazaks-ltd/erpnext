@@ -362,6 +362,8 @@
   {
    "fieldname": "department",
    "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Department",
    "oldfieldname": "department",
@@ -859,24 +861,28 @@
    "fieldname": "e_basic",
    "fieldtype": "Currency",
    "label": "Basic",
+   "permlevel": 1,
    "precision": "2"
   },
   {
    "fieldname": "e_bus_fare",
    "fieldtype": "Currency",
    "label": "Bus Fare",
+   "permlevel": 1,
    "precision": "2"
   },
   {
    "fieldname": "e_car_allowance",
    "fieldtype": "Currency",
    "label": "Car Allowance",
+   "permlevel": 1,
    "precision": "2"
   },
   {
    "fieldname": "e_coordinator_allowance",
    "fieldtype": "Currency",
    "label": "Coordinator Allowance",
+   "permlevel": 1,
    "precision": "2"
   },
   {
@@ -884,19 +890,22 @@
    "fieldname": "working_days",
    "fieldtype": "Select",
    "label": "Working Days",
-   "options": "26\n22"
+   "options": "26\n22",
+   "permlevel": 1
   },
   {
    "default": "1",
    "fieldname": "emp_prgf",
    "fieldtype": "Check",
-   "label": "PRGF"
+   "label": "PRGF",
+   "permlevel": 1
   },
   {
    "default": "0",
    "fieldname": "contractor",
    "fieldtype": "Check",
-   "label": "Contractor"
+   "label": "Contractor",
+   "permlevel": 1
   }
  ],
  "icon": "fa fa-user",
@@ -904,7 +913,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2024-12-15 16:46:11.417893",
+ "modified": "2025-02-06 15:58:01.457455",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
