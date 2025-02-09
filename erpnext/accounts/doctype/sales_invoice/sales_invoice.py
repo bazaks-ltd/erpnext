@@ -472,6 +472,9 @@ class SalesInvoice(SellingController):
 		if cint(self.is_pos) != 1 and not self.is_return:
 			self.update_against_document_in_jv()
 
+		if cint(self.is_pos) == 1 and len(self.advances) > 0:
+			self.update_against_document_in_jv()
+
 		self.update_time_sheet(self.name)
 
 		if frappe.db.get_single_value("Selling Settings", "sales_update_frequency") == "Each Transaction":
