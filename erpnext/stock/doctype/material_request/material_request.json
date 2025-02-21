@@ -13,7 +13,6 @@
   "material_request_type",
   "customer",
   "company",
-  "patient",
   "column_break_2",
   "transaction_date",
   "schedule_date",
@@ -352,19 +351,13 @@
   {
    "fieldname": "column_break_13",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "patient",
-   "fieldtype": "Link",
-   "label": "Patient",
-   "options": "Patient"
   }
  ],
  "icon": "fa fa-ticket",
  "idx": 70,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-03 16:05:00.034487",
+ "modified": "2025-02-21 12:32:23.869733",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Material Request",

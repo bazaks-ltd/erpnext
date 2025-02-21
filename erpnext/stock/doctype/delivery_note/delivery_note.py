@@ -24,15 +24,12 @@ class DeliveryNote(SellingController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
-		from erpnext.accounts.doctype.sales_taxes_and_charges.sales_taxes_and_charges import (
-			SalesTaxesandCharges,
-		)
+		from erpnext.accounts.doctype.sales_taxes_and_charges.sales_taxes_and_charges import SalesTaxesandCharges
 		from erpnext.selling.doctype.sales_team.sales_team import SalesTeam
 		from erpnext.stock.doctype.delivery_note_item.delivery_note_item import DeliveryNoteItem
 		from erpnext.stock.doctype.packed_item.packed_item import PackedItem
+		from frappe.types import DF
 
 		additional_discount_percentage: DF.Float
 		address_display: DF.TextEditor | None
@@ -77,7 +74,7 @@ class DeliveryNote(SellingController):
 		ignore_pricing_rule: DF.Check
 		in_words: DF.Data | None
 		incoterm: DF.Link | None
-		installation_status: DF.LiteralNone
+		installation_status: DF.Literal[None]
 		instructions: DF.Text | None
 		inter_company_reference: DF.Link | None
 		is_internal_customer: DF.Check
@@ -89,7 +86,7 @@ class DeliveryNote(SellingController):
 		lr_date: DF.Date | None
 		lr_no: DF.Data | None
 		named_place: DF.Data | None
-		naming_series: DF.Literal["MAT-DN-.YYYY.-", "MAT-DN-RET-.YYYY.-"]
+		naming_series: DF.Literal["PHAR-.YYYY.-", "MAT-DN-.YYYY.-", "MAT-DN-RET-.YYYY.-"]
 		net_total: DF.Currency
 		other_charges_calculation: DF.TextEditor | None
 		packed_items: DF.Table[PackedItem]

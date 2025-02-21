@@ -40,7 +40,6 @@ class MaterialRequest(BuyingController):
 		letter_head: DF.Link | None
 		material_request_type: DF.Literal["Purchase", "Material Transfer", "Material Issue", "Manufacture", "Customer Provided"]
 		naming_series: DF.Literal["MAT-MR-.YYYY.-"]
-		patient: DF.Link | None
 		per_ordered: DF.Percent
 		per_received: DF.Percent
 		scan_barcode: DF.Data | None

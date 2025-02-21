@@ -184,7 +184,7 @@
    "no_copy": 1,
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
-   "options": "MAT-DN-.YYYY.-\nMAT-DN-RET-.YYYY.-",
+   "options": "PHAR-.YYYY.-\nMAT-DN-.YYYY.-\nMAT-DN-RET-.YYYY.-",
    "print_hide": 1,
    "reqd": 1,
    "set_only_once": 1
@@ -494,6 +494,7 @@
    "print_hide": 1
   },
   {
+   "default": "Pharmacy - PCC",
    "fieldname": "set_warehouse",
    "fieldtype": "Link",
    "label": "Set Source Warehouse",
@@ -1408,7 +1409,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-23 14:18:20.679692",
+ "modified": "2025-02-21 12:12:58.884233",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note",
