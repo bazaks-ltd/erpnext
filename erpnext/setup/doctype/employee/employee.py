@@ -81,7 +81,7 @@ class Employee(NestedSet):
 		self.update_nsm_model()
 		if self.user_id:
 			self.update_user()
-			self.update_user_permissions()
+			# self.update_user_permissions()
 		self.reset_employee_emails_cache()
 
 	def update_user_permissions(self):
