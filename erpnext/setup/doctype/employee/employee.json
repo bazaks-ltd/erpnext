@@ -84,6 +84,10 @@
   "working_days",
   "emp_prgf",
   "contractor",
+  "expat",
+  "e_food_allowance",
+  "e_home_allowance",
+  "tax_exemption_certificate",
   "section_break_bzow",
   "ctc",
   "salary_currency",
@@ -906,6 +910,30 @@
    "fieldtype": "Check",
    "label": "Contractor",
    "permlevel": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "expat",
+   "fieldtype": "Check",
+   "label": "Expat?"
+  },
+  {
+   "depends_on": "eval:doc.expat==true;",
+   "fieldname": "e_food_allowance",
+   "fieldtype": "Currency",
+   "label": "Food Allowance"
+  },
+  {
+   "depends_on": "eval:doc.expat==true",
+   "fieldname": "e_home_allowance",
+   "fieldtype": "Currency",
+   "label": "Home Allowance"
+  },
+  {
+   "depends_on": "eval:doc.expat==true;",
+   "fieldname": "tax_exemption_certificate",
+   "fieldtype": "Attach",
+   "label": "Tax Exemption Certificate"
   }
  ],
  "icon": "fa fa-user",
@@ -913,7 +941,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-02-06 15:58:01.457455",
+ "modified": "2025-04-30 21:02:17.992703",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
