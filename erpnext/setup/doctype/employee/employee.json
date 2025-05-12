@@ -930,7 +930,6 @@
    "label": "Home Allowance"
   },
   {
-   "depends_on": "eval:doc.expat==true;",
    "fieldname": "tax_exemption_certificate",
    "fieldtype": "Attach",
    "label": "Tax Exemption Certificate"
@@ -941,7 +940,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-04-30 21:02:17.992703",
+ "modified": "2025-05-12 20:51:46.066476",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
