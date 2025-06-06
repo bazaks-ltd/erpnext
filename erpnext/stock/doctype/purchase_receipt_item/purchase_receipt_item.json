@@ -132,7 +132,11 @@
   "page_break",
   "sales_order",
   "sales_order_item",
-  "subcontracting_receipt_item"
+  "subcontracting_receipt_item",
+  "section_break_zzdd",
+  "p_sp",
+  "sales_markup",
+  "has_batch_no"
  ],
  "fields": [
   {
@@ -146,7 +150,7 @@
   },
   {
    "bold": 1,
-   "columns": 3,
+   "columns": 2,
    "fieldname": "item_code",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -231,7 +235,7 @@
    "width": "100px"
   },
   {
-   "columns": 2,
+   "columns": 1,
    "fieldname": "qty",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -245,7 +249,6 @@
    "columns": 1,
    "fieldname": "rejected_qty",
    "fieldtype": "Float",
-   "in_list_view": 1,
    "label": "Rejected Quantity",
    "oldfieldname": "rejected_qty",
    "oldfieldtype": "Currency",
@@ -259,8 +262,10 @@
    "print_hide": 1
   },
   {
+   "columns": 1,
    "fieldname": "uom",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "UOM",
    "oldfieldname": "uom",
    "oldfieldtype": "Link",
@@ -284,6 +289,7 @@
    "width": "100px"
   },
   {
+   "columns": 1,
    "depends_on": "eval:doc.uom != doc.stock_uom",
    "fieldname": "conversion_factor",
    "fieldtype": "Float",
@@ -354,7 +360,7 @@
   },
   {
    "bold": 1,
-   "columns": 2,
+   "columns": 1,
    "fieldname": "rate",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -366,6 +372,7 @@
    "width": "100px"
   },
   {
+   "columns": 1,
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
@@ -433,10 +440,9 @@
    "read_only": 1
   },
   {
-   "columns": 2,
+   "columns": 1,
    "fieldname": "net_amount",
    "fieldtype": "Currency",
-   "in_list_view": 1,
    "label": "Net Amount",
    "options": "currency",
    "print_hide": 1,
@@ -498,7 +504,6 @@
    "bold": 1,
    "fieldname": "warehouse",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Accepted Warehouse",
    "oldfieldname": "warehouse",
    "oldfieldtype": "Link",
@@ -585,8 +590,10 @@
    "label": "Serial and Batch No"
   },
   {
+   "columns": 1,
    "fieldname": "item_tax_template",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Item Tax Template",
    "options": "Item Tax Template",
    "print_hide": 1
@@ -1033,8 +1040,10 @@
    "label": "Rejected Serial No"
   },
   {
+   "columns": 1,
    "fieldname": "batch_no",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Batch No",
    "options": "Batch",
    "search_index": 1
@@ -1106,7 +1115,7 @@
    "search_index": 1
   },
   {
-   "default": "0",
+   "default": "1",
    "fieldname": "use_serial_batch_fields",
    "fieldtype": "Check",
    "label": "Use Serial No / Batch Fields"
@@ -1135,12 +1144,38 @@
    "no_copy": 1,
    "options": "Company:company:default_currency",
    "print_hide": 1
+  },
+  {
+   "fieldname": "section_break_zzdd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "p_sp",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "SP (Unit)"
+  },
+  {
+   "fetch_from": "item_code.sales_markup",
+   "fieldname": "sales_markup",
+   "fieldtype": "Percent",
+   "label": "Sales Markup",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "item_code.has_batch_no",
+   "fieldname": "has_batch_no",
+   "fieldtype": "Check",
+   "label": "has batch no",
+   "read_only": 1
   }
  ],
  "idx": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-19 12:14:21.521466",
+ "modified": "2025-06-04 18:01:48.756664",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt Item",

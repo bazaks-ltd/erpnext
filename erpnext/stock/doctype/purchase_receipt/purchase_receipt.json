@@ -26,6 +26,10 @@
   "apply_putaway_rule",
   "is_return",
   "return_against",
+  "section_break_jwsx",
+  "bill_no",
+  "column_break_gtba",
+  "bill_date",
   "accounting_dimensions_section",
   "cost_center",
   "dimension_col_break",
@@ -1267,13 +1271,33 @@
    "no_copy": 1,
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jwsx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "bill_no",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Supplier Invoice No"
+  },
+  {
+   "fieldname": "column_break_gtba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bill_date",
+   "fieldtype": "Date",
+   "in_standard_filter": 1,
+   "label": "Supplier Invoice Date"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 261,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-04 14:50:10.538472",
+ "modified": "2025-06-03 07:58:58.200133",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt",

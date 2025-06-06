@@ -89,6 +89,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "expiry_date",
    "fieldtype": "Date",
    "label": "Expiry Date",
@@ -208,7 +209,7 @@
  "image_field": "image",
  "links": [],
  "max_attachments": 5,
- "modified": "2024-03-27 13:06:38.677265",
+ "modified": "2025-06-01 18:29:05.921943",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Batch",

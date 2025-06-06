@@ -38,6 +38,7 @@ class PurchaseReceiptItem(Document):
 		discount_percentage: DF.Percent
 		expense_account: DF.Link | None
 		from_warehouse: DF.Link | None
+		has_batch_no: DF.Check
 		has_item_scanned: DF.Check
 		image: DF.Attach | None
 		include_exploded_items: DF.Check
@@ -58,6 +59,7 @@ class PurchaseReceiptItem(Document):
 		material_request_item: DF.Data | None
 		net_amount: DF.Currency
 		net_rate: DF.Currency
+		p_sp: DF.Currency
 		page_break: DF.Check
 		parent: DF.Data
 		parentfield: DF.Data
@@ -89,6 +91,7 @@ class PurchaseReceiptItem(Document):
 		returned_qty: DF.Float
 		rm_supp_cost: DF.Currency
 		sales_incoming_rate: DF.Currency
+		sales_markup: DF.Percent
 		sales_order: DF.Link | None
 		sales_order_item: DF.Data | None
 		sample_quantity: DF.Int
