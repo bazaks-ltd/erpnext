@@ -80,6 +80,7 @@
   "e_basic",
   "e_bus_fare",
   "e_car_allowance",
+  "emp_on_call_allowance",
   "e_coordinator_allowance",
   "working_days",
   "emp_prgf",
@@ -122,6 +123,7 @@
   "exit",
   "resignation_letter_date",
   "relieving_date",
+  "leaving_date",
   "type_of_departure",
   "exit_interview_details",
   "held_on",
@@ -952,6 +954,16 @@
    "fieldtype": "Select",
    "label": "Type of Departure",
    "options": "Resignation\nTermination\nAbandonment of Post"
+  },
+  {
+   "fieldname": "leaving_date",
+   "fieldtype": "Date",
+   "label": "Leaving Date"
+  },
+  {
+   "fieldname": "emp_on_call_allowance",
+   "fieldtype": "Currency",
+   "label": "On Call Allowance"
   }
  ],
  "icon": "fa fa-user",
@@ -959,7 +971,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-06-06 09:21:48.699757",
+ "modified": "2025-06-09 00:38:18.106520",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
