@@ -562,7 +562,7 @@ class StockReconciliation(StockController):
 	def validate_item(self, item_code, row):
 		from erpnext.stock.doctype.item.item import (
 			validate_cancelled_item,
-			validate_end_of_life,
+			# validate_end_of_life,
 			validate_is_stock_item,
 		)
 
@@ -572,7 +572,7 @@ class StockReconciliation(StockController):
 			item = frappe.get_doc("Item", item_code)
 
 			# end of life and stock item
-			validate_end_of_life(item_code, item.end_of_life, item.disabled)
+			# validate_end_of_life(item_code, item.end_of_life, item.disabled)
 			validate_is_stock_item(item_code, item.is_stock_item)
 
 			# docstatus should be < 2
