@@ -484,8 +484,10 @@
    "label": "Warehouse and Reference"
   },
   {
+   "columns": 1,
    "fieldname": "warehouse",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Warehouse",
    "oldfieldname": "warehouse",
    "oldfieldtype": "Link",
@@ -918,7 +920,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-21 12:08:55.443544",
+ "modified": "2025-06-12 13:21:15.751839",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note Item",
