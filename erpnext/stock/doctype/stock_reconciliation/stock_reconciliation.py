@@ -34,11 +34,8 @@ class StockReconciliation(StockController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
+		from erpnext.stock.doctype.stock_reconciliation_item.stock_reconciliation_item import StockReconciliationItem
 		from frappe.types import DF
-
-		from erpnext.stock.doctype.stock_reconciliation_item.stock_reconciliation_item import (
-			StockReconciliationItem,
-		)
 
 		amended_from: DF.Link | None
 		company: DF.Link
@@ -50,6 +47,7 @@ class StockReconciliation(StockController):
 		posting_date: DF.Date
 		posting_time: DF.Time
 		purpose: DF.Literal["", "Opening Stock", "Stock Reconciliation"]
+		ref: DF.Data | None
 		scan_barcode: DF.Data | None
 		scan_mode: DF.Check
 		set_posting_time: DF.Check

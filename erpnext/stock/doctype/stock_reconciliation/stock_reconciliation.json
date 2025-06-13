@@ -10,6 +10,7 @@
   "naming_series",
   "company",
   "purpose",
+  "ref",
   "col1",
   "posting_date",
   "posting_time",
@@ -177,13 +178,18 @@
   {
    "fieldname": "column_break_12",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ref",
+   "fieldtype": "Data",
+   "label": "ref"
   }
  ],
  "icon": "fa fa-upload-alt",
  "idx": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-27 13:10:44.699413",
+ "modified": "2025-06-13 09:42:41.201639",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Reconciliation",
