@@ -14,6 +14,7 @@ class EmployeeEducation(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
+		certificate: DF.Attach | None
 		class_per: DF.Data | None
 		level: DF.Literal["Graduate", "Post Graduate", "Under Graduate"]
 		maj_opt_subj: DF.Text | None
