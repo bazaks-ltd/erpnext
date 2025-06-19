@@ -861,8 +861,8 @@ def get_returned_batches(child_doc, parent_doc, batch_no_field=None, ignore_vouc
 
 def available_serial_batch_for_return(field, doctype, reference_ids, is_rejected=False):
 	available_dict = get_available_serial_batches(field, doctype, reference_ids, is_rejected=is_rejected)
-	if not available_dict:
-		frappe.throw(_("No Serial / Batches are available for return"))
+	# if not available_dict:
+	# 	frappe.throw(_("No Serial / Batches are available for return"))
 
 	return available_dict
 
