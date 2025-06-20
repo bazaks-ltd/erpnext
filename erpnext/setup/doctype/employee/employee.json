@@ -79,6 +79,7 @@
   "emp_details_section",
   "e_basic",
   "e_bus_fare",
+  "bus_ticket_document",
   "e_car_allowance",
   "emp_on_call_allowance",
   "e_coordinator_allowance",
@@ -95,8 +96,10 @@
   "salary_mode",
   "bank_details_section",
   "bank_name",
-  "column_break_heye",
+  "bank_details_document",
+  "salary_pledge_document",
   "bank_ac_no",
+  "column_break_heye",
   "iban",
   "personal_details",
   "marital_status",
@@ -964,6 +967,21 @@
    "fieldname": "emp_on_call_allowance",
    "fieldtype": "Currency",
    "label": "On Call Allowance"
+  },
+  {
+   "fieldname": "salary_pledge_document",
+   "fieldtype": "Attach",
+   "label": "Salary Pledge"
+  },
+  {
+   "fieldname": "bus_ticket_document",
+   "fieldtype": "Attach",
+   "label": "Bus Ticket"
+  },
+  {
+   "fieldname": "bank_details_document",
+   "fieldtype": "Attach",
+   "label": "Bank Details Document"
   }
  ],
  "icon": "fa fa-user",
@@ -971,7 +989,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-06-09 00:38:18.106520",
+ "modified": "2025-06-16 00:35:06.884651",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
