@@ -34,6 +34,7 @@ class Company(NestedSet):
 		auto_err_frequency: DF.Literal["Daily", "Weekly", "Monthly"]
 		auto_exchange_rate_revaluation: DF.Check
 		book_advance_payments_in_separate_party_account: DF.Check
+		brn: DF.Data | None
 		capital_work_in_progress_account: DF.Link | None
 		chart_of_accounts: DF.Literal[None]
 		company_description: DF.TextEditor | None
@@ -87,6 +88,7 @@ class Company(NestedSet):
 		payment_terms: DF.Link | None
 		phone_no: DF.Data | None
 		reconcile_on_advance_payment_date: DF.Check
+		registered_name: DF.Data | None
 		registration_details: DF.Code | None
 		rgt: DF.Int
 		round_off_account: DF.Link | None

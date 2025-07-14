@@ -29,6 +29,7 @@
   "date_of_joining",
   "image",
   "status",
+  "tan",
   "erpnext_user",
   "user_id",
   "create_user",
@@ -982,6 +983,11 @@
    "fieldname": "bank_details_document",
    "fieldtype": "Attach",
    "label": "Bank Details Document"
+  },
+  {
+   "fieldname": "tan",
+   "fieldtype": "Data",
+   "label": "TAN"
   }
  ],
  "icon": "fa fa-user",
@@ -989,7 +995,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-06-16 00:35:06.884651",
+ "modified": "2025-07-13 19:51:12.148335",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
