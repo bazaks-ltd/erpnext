@@ -30,6 +30,12 @@ class Employee(NestedSet):
 		set_name_by_naming_series(self)
 		self.employee = self.name
 
+	@frappe.whitelist()
+	def get_employee_age(self):
+		if self.date_of_birth:
+			return (today() - getdate(self.date_of_birth)).days // 365
+		return 0
+
 	def validate(self):
 		from erpnext.controllers.status_updater import validate_status
 

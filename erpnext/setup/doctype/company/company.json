@@ -18,10 +18,12 @@
   "default_holiday_list",
   "cb0",
   "default_letter_head",
+  "brn",
   "tax_id",
   "domain",
   "date_of_establishment",
   "parent_company",
+  "registered_name",
   "company_info",
   "company_logo",
   "date_of_incorporation",
@@ -785,6 +787,16 @@
    "fieldtype": "Link",
    "label": "Default Operating Cost Account",
    "options": "Account"
+  },
+  {
+   "fieldname": "brn",
+   "fieldtype": "Data",
+   "label": "BRN"
+  },
+  {
+   "fieldname": "registered_name",
+   "fieldtype": "Data",
+   "label": "Registered Name"
   }
  ],
  "icon": "fa fa-building",
@@ -792,7 +804,7 @@
  "image_field": "company_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2024-07-24 18:17:56.413971",
+ "modified": "2025-07-13 20:05:04.324644",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Company",
