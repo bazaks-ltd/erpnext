@@ -21,6 +21,7 @@
   "posting_date",
   "posting_time",
   "set_posting_time",
+  "department",
   "column_break_12",
   "company",
   "apply_putaway_rule",
@@ -1291,13 +1292,21 @@
    "fieldtype": "Date",
    "in_standard_filter": 1,
    "label": "Supplier Invoice Date"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "department",
+   "options": "Department"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 261,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-03 07:58:58.200133",
+ "modified": "2025-07-30 08:55:34.222971",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt",
