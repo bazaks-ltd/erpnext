@@ -51,7 +51,7 @@ class StockReconciliation(StockController):
 		scan_barcode: DF.Data | None
 		scan_mode: DF.Check
 		set_posting_time: DF.Check
-		set_warehouse: DF.Link | None
+		set_warehouse: DF.Link
 	# end: auto-generated types
 
 	def __init__(self, *args, **kwargs):

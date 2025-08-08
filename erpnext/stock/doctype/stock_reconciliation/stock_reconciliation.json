@@ -167,8 +167,12 @@
   {
    "fieldname": "set_warehouse",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Default Warehouse",
-   "options": "Warehouse"
+   "link_filters": "[[\"Warehouse\",\"is_group\",\"=\",0]]",
+   "options": "Warehouse",
+   "reqd": 1
   },
   {
    "depends_on": "eval:!doc.docstatus",
@@ -189,7 +193,7 @@
  "idx": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-13 09:42:41.201639",
+ "modified": "2025-07-25 09:54:51.968104",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Reconciliation",

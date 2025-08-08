@@ -526,8 +526,7 @@
    "label": "Delivery Note Item",
    "oldfieldname": "delivery_note_details",
    "oldfieldtype": "Table",
-   "options": "Delivery Note Item",
-   "reqd": 1
+   "options": "Delivery Note Item"
   },
   {
    "fieldname": "pricing_rule_details",
@@ -1409,7 +1408,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-21 12:12:58.884233",
+ "modified": "2025-06-28 19:41:08.216131",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note",

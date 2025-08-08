@@ -13,6 +13,7 @@
   "naming_series",
   "supplier_name",
   "country",
+  "brn",
   "column_break0",
   "supplier_group",
   "supplier_type",
@@ -36,6 +37,7 @@
   "dashboard_tab",
   "tax_tab",
   "tax_id",
+  "vat",
   "column_break_27",
   "tax_category",
   "tax_withholding_category",
@@ -112,7 +114,7 @@
   {
    "fieldname": "tax_id",
    "fieldtype": "Data",
-   "label": "Tax ID"
+   "label": "TAN"
   },
   {
    "fieldname": "tax_category",
@@ -473,6 +475,16 @@
   {
    "fieldname": "column_break_mglr",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brn",
+   "fieldtype": "Data",
+   "label": "BRN"
+  },
+  {
+   "fieldname": "vat",
+   "fieldtype": "Data",
+   "label": "VAT"
   }
  ],
  "icon": "fa fa-user",
@@ -485,7 +497,7 @@
    "link_fieldname": "party"
   }
  ],
- "modified": "2024-05-08 18:02:57.342931",
+ "modified": "2025-08-06 12:00:18.238000",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Supplier",

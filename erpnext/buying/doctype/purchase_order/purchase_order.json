@@ -19,6 +19,7 @@
   "column_break_7",
   "transaction_date",
   "schedule_date",
+  "department",
   "column_break1",
   "company",
   "apply_tds",
@@ -463,9 +464,12 @@
   {
    "fieldname": "set_warehouse",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Set Target Warehouse",
    "options": "Warehouse",
-   "print_hide": 1
+   "print_hide": 1,
+   "reqd": 1
   },
   {
    "default": "0",
@@ -1282,13 +1286,21 @@
    "oldfieldtype": "Select",
    "options": "Not Initiated\nInitiated\nPartially Paid\nFully Paid",
    "print_hide": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 105,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-27 13:10:24.518785",
+ "modified": "2025-08-06 11:20:04.278475",
  "modified_by": "Administrator",
  "module": "Buying",
  "name": "Purchase Order",

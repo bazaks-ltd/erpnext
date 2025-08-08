@@ -290,6 +290,7 @@
    "depends_on": "paid_to",
    "fieldname": "paid_to_account_balance",
    "fieldtype": "Currency",
+   "hidden": 1,
    "label": "Account Balance (To)",
    "options": "paid_to_account_currency",
    "print_hide": 1,
@@ -802,7 +803,7 @@
    "table_fieldname": "payment_entries"
   }
  ],
- "modified": "2024-05-31 17:07:06.197249",
+ "modified": "2025-07-14 15:41:44.427732",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Entry",
