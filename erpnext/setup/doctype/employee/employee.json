@@ -30,6 +30,7 @@
   "image",
   "status",
   "tan",
+  "digital_signature",
   "erpnext_user",
   "user_id",
   "create_user",
@@ -988,6 +989,11 @@
    "fieldname": "tan",
    "fieldtype": "Data",
    "label": "TAN"
+  },
+  {
+   "fieldname": "digital_signature",
+   "fieldtype": "Attach Image",
+   "label": "Digital Signature"
   }
  ],
  "icon": "fa fa-user",
@@ -995,7 +1001,7 @@
  "image_field": "image",
  "is_tree": 1,
  "links": [],
- "modified": "2025-07-13 19:51:12.148335",
+ "modified": "2025-08-17 12:11:50.219378",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Employee",
