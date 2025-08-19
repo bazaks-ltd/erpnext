@@ -23,6 +23,7 @@
   "domain",
   "date_of_establishment",
   "parent_company",
+  "company_stamp",
   "registered_name",
   "company_info",
   "company_logo",
@@ -797,6 +798,12 @@
    "fieldname": "registered_name",
    "fieldtype": "Data",
    "label": "Registered Name"
+  },
+  {
+   "description": "Upload company stamp/seal image",
+   "fieldname": "company_stamp",
+   "fieldtype": "Attach Image",
+   "label": "Company Stamp"
   }
  ],
  "icon": "fa fa-building",
@@ -804,7 +811,7 @@
  "image_field": "company_logo",
  "is_tree": 1,
  "links": [],
- "modified": "2025-07-13 20:05:04.324644",
+ "modified": "2025-08-17 11:50:13.517253",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Company",
