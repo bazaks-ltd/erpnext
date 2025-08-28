@@ -1313,7 +1313,7 @@ def get_stock_balance_for(
 		qty, rate = data
 
 	if item_dict.get("has_batch_no"):
-		qty = get_batch_qty(batch_no, warehouse, posting_date=posting_date, posting_time=posting_time) or 0
+		qty = get_batch_qty(batch_no, warehouse, posting_date=posting_date, posting_time=posting_time, for_stock_levels=True) or 0
 
 	return {
 		"qty": qty,
