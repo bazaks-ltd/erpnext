@@ -190,6 +190,7 @@
    "set_only_once": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
    "in_global_search": 1,
@@ -203,6 +204,7 @@
    "search_index": 1
   },
   {
+   "allow_on_submit": 1,
    "bold": 1,
    "depends_on": "customer",
    "fetch_from": "customer.customer_name",
@@ -1408,7 +1410,7 @@
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-28 19:41:08.216131",
+ "modified": "2025-10-08 11:43:14.190985",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note",
