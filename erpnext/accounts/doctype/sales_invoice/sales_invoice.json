@@ -1978,7 +1978,7 @@
    "label": "Is Rate Adjustment Entry (Debit Note)"
   },
   {
-   "default": "0",
+   "default": "1",
    "depends_on": "grand_total",
    "fieldname": "disable_rounded_total",
    "fieldtype": "Check",
@@ -2202,7 +2202,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2025-01-15 09:34:10.222589",
+ "modified": "2025-10-17 10:34:24.477646",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
