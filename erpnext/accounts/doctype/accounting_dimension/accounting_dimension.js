@@ -54,6 +54,30 @@ frappe.ui.form.on("Accounting Dimension", {
 					},
 				});
 			});
+
+			frm.add_custom_button(__("Manual Accounting Doctypes"), function () {
+				frappe.confirm(
+					__(
+						"This will create/update accounting dimension fields in all relevant doctypes. Continue?"
+					),
+					function () {
+						frappe.call({
+							method: "manual_accounting_doctypes",
+							doc: frm.doc,
+							freeze: true,
+							freeze_message: __("Creating dimensions in doctypes..."),
+							callback: function (r) {
+								if (!r.exc) {
+									frappe.show_alert({
+										message: __("Accounting dimension created successfully"),
+										indicator: "green",
+									});
+								}
+							},
+						});
+					}
+				);
+			});
 		}
 	},
 

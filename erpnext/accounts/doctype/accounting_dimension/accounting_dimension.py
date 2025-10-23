@@ -101,6 +101,12 @@ class AccountingDimension(Document):
 	def on_update(self):
 		frappe.flags.accounting_dimensions = None
 
+	@frappe.whitelist()
+	def manual_accounting_doctypes(self):
+		"""Manual trigger for creating dimension in accounting doctypes"""
+		make_dimension_in_accounting_doctypes(doc=self)
+		frappe.msgprint(_("Accounting dimension has been created in all relevant doctypes"))
+
 
 def make_dimension_in_accounting_doctypes(doc, doclist=None):
 	if not doclist:
@@ -207,14 +213,17 @@ def delete_accounting_dimension(doc):
 
 @frappe.whitelist()
 def disable_dimension(doc):
-	if frappe.flags.in_test:
-		toggle_disabling(doc=doc)
-	else:
-		frappe.enqueue(toggle_disabling, doc=doc)
+	# Run synchronously so that enabling/disabling of the dimension
+	# happens immediately instead of being processed in the background.
+	# toggle_disabling expects a JSON string or dict for `doc`.
+	toggle_disabling(doc=doc)
 
 
 def toggle_disabling(doc):
-	doc = json.loads(doc)
+	# `doc` may be a JSON string (when passed through queuing/serialization)
+	# or a python dict (when called synchronously via RPC). Accept both.
+	if isinstance(doc, str):
+		doc = json.loads(doc)
 
 	if doc.get("disabled"):
 		df = {"read_only": 1}
