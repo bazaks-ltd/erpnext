@@ -693,10 +693,26 @@ class ReceivablePayableReport:
 			"update_outstanding_for_self": 0,
 		}
 		or_filters = {}
+		# Accounting dimensions (Healthcare Practitioner, Employee) reuse party-type
+		# fieldnames and arrive as a list. A one-item list must not be passed through:
+		# Frappe treats [operator, value] and raises IndexError.
+		return_meta = frappe.get_meta(doctype)
 		for party_type in self.party_type:
 			party_field = scrub(party_type)
-			if self.filters.get(party_field):
-				or_filters.update({party_field: self.filters.get(party_field)})
+			if not return_meta.has_field(party_field):
+				continue
+			filter_value = self.filters.get(party_field)
+			if not filter_value:
+				continue
+			if isinstance(filter_value, (list, tuple)):
+				filter_value = [value for value in filter_value if value not in (None, "", "-")]
+				if not filter_value:
+					continue
+				or_filters[party_field] = (
+					filter_value[0] if len(filter_value) == 1 else ["in", filter_value]
+				)
+			else:
+				or_filters[party_field] = filter_value
 		self.return_entries = frappe._dict(
 			frappe.get_all(
 				doctype, filters=filters, or_filters=or_filters, fields=["name", "return_against"], as_list=1
