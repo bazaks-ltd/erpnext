@@ -428,6 +428,7 @@
    "fieldtype": "Tab Break",
    "label": "Salary",
    "oldfieldtype": "Section Break",
+   "permlevel": 1,
    "width": "50%"
   },
   {
@@ -854,7 +855,8 @@
   {
    "fieldname": "contract",
    "fieldtype": "Attach",
-   "label": "Contract"
+   "label": "Contract",
+   "permlevel": 1
   },
   {
    "fieldname": "edf",
@@ -942,17 +944,20 @@
   {
    "fieldname": "tax_exemption_certificate",
    "fieldtype": "Attach",
-   "label": "Tax Exemption Certificate"
+   "label": "Tax Exemption Certificate",
+   "permlevel": 1
   },
   {
    "fieldname": "cv",
    "fieldtype": "Attach",
-   "label": "CV"
+   "label": "CV",
+   "permlevel": 1
   },
   {
    "fieldname": "certificate_of_character",
    "fieldtype": "Attach",
-   "label": "Certificate of Character"
+   "label": "Certificate of Character",
+   "permlevel": 1
   },
   {
    "fieldname": "type_of_departure",
@@ -973,17 +978,20 @@
   {
    "fieldname": "salary_pledge_document",
    "fieldtype": "Attach",
-   "label": "Salary Pledge"
+   "label": "Salary Pledge",
+   "permlevel": 1
   },
   {
    "fieldname": "bus_ticket_document",
    "fieldtype": "Attach",
-   "label": "Bus Ticket"
+   "label": "Bus Ticket",
+   "permlevel": 1
   },
   {
    "fieldname": "bank_details_document",
    "fieldtype": "Attach",
-   "label": "Bank Details Document"
+   "label": "Bank Details Document",
+   "permlevel": 1
   },
   {
    "fieldname": "tan",
@@ -993,7 +1001,8 @@
   {
    "fieldname": "digital_signature",
    "fieldtype": "Attach Image",
-   "label": "Digital Signature"
+   "label": "Digital Signature",
+   "permlevel": 1
   }
  ],
  "icon": "fa fa-user",
