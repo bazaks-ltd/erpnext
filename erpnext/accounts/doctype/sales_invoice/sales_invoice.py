@@ -1396,7 +1396,6 @@ class SalesInvoice(SellingController):
 					amount, base_amount = self.get_amount_and_base_amount(item, enable_discount_accounting)
 
 					account_currency = get_account_currency(income_account)
-					print(">>>>", income_account)
 					gl_entries.append(
 						self.get_gl_dict(
 							{
